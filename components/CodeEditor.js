@@ -23,8 +23,8 @@ export default function CodeEditor(props) {
           useWorker: false,
           enableLiveAutocompletion: true
         }}
-        width="500px"
-        height="500px"
+        width="400px"
+        height="200px"
         {...props}
       />
     </div>

@@ -66,7 +66,11 @@ export default function Draw() {
     // get tile x and y
     const tileX = Math.floor(mouseX / tilePixels);
     const tileY = Math.floor(mouseY / tilePixels);
+    // toggle tile
     const tileIndex = tileY * panelTiles + tileX;
+    const newTiles = tiles.slice();
+    newTiles[tileIndex] = !newTiles[tileIndex];
+    setTiles(newTiles);
   }
 
   useEffect(() => {

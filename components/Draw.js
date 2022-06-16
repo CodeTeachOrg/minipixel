@@ -12,6 +12,12 @@ export default function Draw() {
   }
 
   function draw() {
+    // draw background
+    ctx.fillStyle = '#000';
+    ctx.fillRect(0, 0, panelPixels, panelPixels);
+    // draw arrow background
+    ctx.fillStyle = '#fff';
+    ctx.fillRect(0, 0, tilePixels / 2, tilePixels / 2);
   }
 
   useEffect(() => {

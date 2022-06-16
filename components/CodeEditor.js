@@ -1,6 +1,7 @@
 import AceEditor from 'react-ace';
 
 import { useState } from 'react';
+import { panelPixels } from '../util/dimensions';
 
 import 'ace-builds/src-noconflict/mode-javascript.js';
 import 'ace-builds/src-noconflict/theme-github.js';
@@ -23,8 +24,8 @@ export default function CodeEditor(props) {
           useWorker: false,
           enableLiveAutocompletion: true
         }}
-        width="400px"
-        height="200px"
+        width={`${panelPixels * 2 + 4}px`}
+        height={`${panelPixels}px`}
         {...props}
       />
     </div>

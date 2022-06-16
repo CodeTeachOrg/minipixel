@@ -4,6 +4,13 @@ import { useEffect, useRef } from 'react';
 
 let canvas, ctx;
 
+const panelTiles = 4;
+const tilePixels = panelPixels / panelTiles;
+const tileCount = panelTiles * panelTiles;
+
+const mpx = tilePixels / 16; // mini pixels
+const bpx = tilePixels / 32; // border pixels
+
 export default function Draw() {
   const canvasRef = useRef();
 

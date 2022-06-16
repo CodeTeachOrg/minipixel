@@ -1,6 +1,6 @@
 import styles from '../styles/components/Draw.module.css';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { panelPixels } from '../util/dimensions';
 
 let canvas, ctx;
@@ -14,6 +14,8 @@ const bpx = tilePixels / 32; // border pixels
 
 export default function Draw() {
   const canvasRef = useRef();
+
+  const [tiles, setTiles] = useState(Array(tileCount).fill(false));
 
   function clamp(num, min, max) {
     return num <= min ? min : num >= max ? max : num;
@@ -89,6 +91,12 @@ export default function Draw() {
       className={styles.container}
       style={{ width: panelPixels, height: panelPixels }}
     >
+      <button
+        className={styles.back}
+        onClick={back}
+      >
+        ⬅
+      </button>
       <canvas
         ref={canvasRef}
         onMouseDown={mouseDown}

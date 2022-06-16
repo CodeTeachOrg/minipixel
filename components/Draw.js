@@ -40,6 +40,9 @@ export default function Draw() {
     ctx.fillRect(mpx * 3.5, mpx * 5, mpx * 0.5, mpx);
   }
 
+  function mouseDown(e) {
+  }
+
   useEffect(() => {
     canvas = canvasRef.current;
     ctx = canvas.getContext('2d');
@@ -56,6 +59,7 @@ export default function Draw() {
         ref={canvasRef}
         width="200px"
         height="200px"
+        onMouseDown={mouseDown}
       />
     </div>
   );

@@ -47,6 +47,10 @@ export default function Draw() {
     ctx.fillRect(mpx * 3.5, mpx * 5, mpx * 0.5, mpx);
   }
 
+  function back() {
+    console.log('back');
+  }
+
   function mouseDown(e) {
     // get mouse x and y
     let mouseX = e.clientX - canvas.offsetLeft + window.scrollX;
@@ -54,6 +58,11 @@ export default function Draw() {
     // clamp mouse x and y
     mouseX = clamp(mouseX, 0, panelPixels - 1);
     mouseY = clamp(mouseY, 0, panelPixels - 1);
+    // check back button
+    if (mouseX < tilePixels / 2 && mouseY < tilePixels / 2) {
+      back();
+      return;
+    }
   }
 
   useEffect(() => {

@@ -7,6 +7,10 @@ let canvas, ctx;
 export default function Draw() {
   const canvasRef = useRef();
 
+  function clamp(num, min, max) {
+    return num <= min ? min : num >= max ? max : num;
+  }
+
   function draw() {
   }
 

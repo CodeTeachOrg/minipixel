@@ -7,10 +7,18 @@ let canvas, ctx;
 export default function Draw() {
   const canvasRef = useRef();
 
+  function draw() {
+  }
+
   useEffect(() => {
     canvas = canvasRef.current;
     ctx = canvas.getContext('2d');
+    draw();
   }, []);
+
+  useEffect(() => {
+    draw();
+  }, [tiles]);
 
   return (
     <div className={styles.container}>

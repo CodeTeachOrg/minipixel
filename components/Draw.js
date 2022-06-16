@@ -48,6 +48,12 @@ export default function Draw() {
   }
 
   function mouseDown(e) {
+    // get mouse x and y
+    let mouseX = e.clientX - canvas.offsetLeft + window.scrollX;
+    let mouseY = e.clientY - canvas.offsetTop + window.scrollY;
+    // clamp mouse x and y
+    mouseX = clamp(mouseX, 0, panelPixels - 1);
+    mouseY = clamp(mouseY, 0, panelPixels - 1);
   }
 
   useEffect(() => {

@@ -1,6 +1,7 @@
 import styles from '../styles/components/Draw.module.css';
 
 import { useEffect, useRef } from 'react';
+import { panelPixels } from '../util/dimensions';
 
 let canvas, ctx;
 
@@ -84,12 +85,15 @@ export default function Draw() {
   }, [tiles]);
 
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      style={{ width: panelPixels, height: panelPixels }}
+    >
       <canvas
         ref={canvasRef}
-        width="200px"
-        height="200px"
         onMouseDown={mouseDown}
+        width={panelPixels}
+        height={panelPixels}
       />
     </div>
   );

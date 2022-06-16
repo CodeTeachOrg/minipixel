@@ -63,6 +63,10 @@ export default function Draw() {
       back();
       return;
     }
+    // get tile x and y
+    const tileX = Math.floor(mouseX / tilePixels);
+    const tileY = Math.floor(mouseY / tilePixels);
+    const tileIndex = tileY * panelTiles + tileX;
   }
 
   useEffect(() => {

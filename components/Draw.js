@@ -29,6 +29,15 @@ export default function Draw() {
     // draw arrow background
     ctx.fillStyle = '#fff';
     ctx.fillRect(0, 0, tilePixels / 2, tilePixels / 2);
+    // draw back arrow
+    ctx.fillStyle = '#000';
+    ctx.fillRect(mpx * 2, mpx * 3.5, mpx * 4, mpx);
+    ctx.fillRect(mpx * 3, mpx * 2.5, mpx, mpx);
+    ctx.fillRect(mpx * 3, mpx * 4.5, mpx, mpx);
+    ctx.fillRect(mpx * 2.5, mpx * 3, mpx, mpx);
+    ctx.fillRect(mpx * 2.5, mpx * 4, mpx, mpx);
+    ctx.fillRect(mpx * 3.5, mpx * 2, mpx * 0.5, mpx);
+    ctx.fillRect(mpx * 3.5, mpx * 5, mpx * 0.5, mpx);
   }
 
   useEffect(() => {

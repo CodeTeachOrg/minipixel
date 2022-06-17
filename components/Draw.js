@@ -61,11 +61,6 @@ export default function Draw() {
     // clamp mouse x and y
     mouseX = clamp(mouseX, 0, panelPixels - 1);
     mouseY = clamp(mouseY, 0, panelPixels - 1);
-    // check back button
-    if (mouseX < tilePixels / 2 && mouseY < tilePixels / 2) {
-      back();
-      return;
-    }
     // get tile x and y
     const tileX = Math.floor(mouseX / tilePixels);
     const tileY = Math.floor(mouseY / tilePixels);

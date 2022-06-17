@@ -36,6 +36,14 @@ export default function Draw() {
         );
       }
     }
+    // draw grid lines
+    ctx.fillStyle = '#ddd';
+    for (let x = 1; x < panelTiles; x++) {
+      ctx.fillRect(x * tilePixels, 0, bpx, panelPixels);
+    }
+    for (let y = 1; y < panelTiles; y++) {
+      ctx.fillRect(0, y * tilePixels, panelPixels, bpx);
+    }
   }
 
   function back() {

@@ -1,0 +1,12 @@
+.container {
+  position: relative;
+}
+
+.chars {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  padding-right: 4px;
+  font-family: Monaco, Menlo, "Ubuntu Mono", Consolas, source-code-pro, monospace;
+}

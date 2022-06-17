@@ -1,6 +1,5 @@
 import AceEditor from 'react-ace';
 
-import { useState } from 'react';
 import { panelPixels } from '../util/dimensions';
 
 import 'ace-builds/src-noconflict/mode-javascript.js';
@@ -10,8 +9,9 @@ import 'ace-builds/src-noconflict/ext-searchbox';
 
 import styles from '../styles/components/CodeEditor.module.css';
 
-export default function CodeEditor(props) {
+const maxChars = 256;
 
+export default function CodeEditor(props) {
   return (
     <div className={styles.container}>
       <AceEditor
@@ -28,6 +28,12 @@ export default function CodeEditor(props) {
         height={`${panelPixels}px`}
         {...props}
       />
+      <span
+        className={styles.chars}
+        style={{ color: props.value.length > maxChars ? 'red' : '#000' }}
+      >
+        {props.value.length}/{maxChars}
+      </span>
     </div>
   );
 }

@@ -9,8 +9,7 @@ const panelTiles = 4;
 const tilePixels = panelPixels / panelTiles;
 const tileCount = panelTiles * panelTiles;
 
-const mpx = tilePixels / 16; // mini pixels
-const bpx = tilePixels / 32; // border pixels
+const gridPixels = 2; // grid pixels
 
 export default function Draw() {
   const canvasRef = useRef();
@@ -39,10 +38,16 @@ export default function Draw() {
     // draw grid lines
     ctx.fillStyle = '#ddd';
     for (let x = 1; x < panelTiles; x++) {
-      ctx.fillRect(x * tilePixels, 0, bpx, panelPixels);
+      ctx.fillRect(
+        x * tilePixels - gridPixels / 2, 0,
+        gridPixels, panelPixels
+      );
     }
     for (let y = 1; y < panelTiles; y++) {
-      ctx.fillRect(0, y * tilePixels, panelPixels, bpx);
+      ctx.fillRect(
+        0, y * tilePixels - gridPixels / 2,
+        panelPixels, gridPixels
+      );
     }
   }
 

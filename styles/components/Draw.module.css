@@ -1,7 +1,9 @@
 .container {
-  height: 200px;
-  width: 200px;
   background: #fff;
+  cursor: pointer;
+  border: 2px solid #000;
+}
+
 .back {
   position: absolute;
   width: 32px;

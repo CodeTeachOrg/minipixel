@@ -1,3 +1,3 @@
 # Minipixel
 
-A minimalist game maker.
+Game-making minified.

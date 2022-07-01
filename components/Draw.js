@@ -27,6 +27,13 @@ export default function Draw() {
   }
 
   function draw() {
+    if (currTile === -1) {
+      for (let tx = 0; tx < panelTiles; tx++) {
+        for (let ty = 0; ty < panelTiles; ty++) {
+          const spriteIndex = ty * panelTiles + tx;
+          const tile = tiles[spriteIndex];
+          }
+        }
       }
     }
     // draw grid lines

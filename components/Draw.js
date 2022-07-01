@@ -32,6 +32,16 @@ export default function Draw() {
         for (let ty = 0; ty < panelTiles; ty++) {
           const spriteIndex = ty * panelTiles + tx;
           const tile = tiles[spriteIndex];
+          for (let x = 0; x < panelTiles; x++) {
+            for (let y = 0; y < panelTiles; y++) {
+              const tileIndex = y * panelTiles + x;
+              ctx.fillStyle = tile[tileIndex] ? '#000' : '#fff';
+              ctx.fillRect(
+                tx * tilePixels + x * miniTilePixels,
+                ty * tilePixels + y * miniTilePixels,
+                miniTilePixels, miniTilePixels
+              );
+            }
           }
         }
       }

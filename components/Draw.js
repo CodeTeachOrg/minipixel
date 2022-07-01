@@ -7,6 +7,7 @@ let canvas, ctx;
 
 const panelTiles = 4;
 const tilePixels = panelPixels / panelTiles;
+const miniTilePixels = tilePixels / panelTiles;
 const tileCount = panelTiles * panelTiles;
 
 const gridPixels = 2; // grid pixels
@@ -14,7 +15,12 @@ const gridPixels = 2; // grid pixels
 export default function Draw() {
   const canvasRef = useRef();
 
-  const [tiles, setTiles] = useState(Array(tileCount).fill(false));
+  const [currTile, setCurrTile] = useState(-1);
+  const [tiles, setTiles] = useState(
+    Array(tileCount).fill(
+      Array(tileCount).fill(false)
+    )
+  );
 
   function clamp(num, min, max) {
     return num <= min ? min : num >= max ? max : num;
@@ -83,7 +89,7 @@ export default function Draw() {
 
   useEffect(() => {
     draw();
-  }, [tiles]);
+  }, [currTile, tiles]);
 
   return (
     <div

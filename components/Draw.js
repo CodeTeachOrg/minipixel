@@ -27,28 +27,35 @@ export default function Draw() {
   }
 
   function draw() {
+    // if no tile selected
     if (currTile === -1) {
+      // for each tile
       for (let tx = 0; tx < panelTiles; tx++) {
         for (let ty = 0; ty < panelTiles; ty++) {
+          // get tile position
           const spriteIndex = ty * panelTiles + tx;
           const tile = tiles[spriteIndex];
+          const tileX = tx * tilePixels;
+          const tileY = ty * tilePixels;
+          // for each square
           for (let x = 0; x < panelTiles; x++) {
             for (let y = 0; y < panelTiles; y++) {
+              // draw tile square
               const tileIndex = y * panelTiles + x;
               ctx.fillStyle = tile[tileIndex] ? '#000' : '#fff';
-              ctx.fillRect(
-                tx * tilePixels + x * miniTilePixels,
-                ty * tilePixels + y * miniTilePixels,
-                miniTilePixels, miniTilePixels
-              );
+              const miniX = tileX + x * miniTilePixels;
+              const miniY = tileY + y * miniTilePixels;
+              ctx.fillRect(miniX, miniY, miniTilePixels, miniTilePixels);
             }
           }
         }
       }
+    // if tile selected
     } else {
-      // draw tiles
+      // for each square
       for (let x = 0; x < panelTiles; x++) {
         for (let y = 0; y < panelTiles; y++) {
+          // draw tile square
           const tileIndex = y * panelTiles + x;
           ctx.fillStyle = tiles[currTile][tileIndex] ? '#000' : '#fff';
           ctx.fillRect(

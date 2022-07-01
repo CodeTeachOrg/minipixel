@@ -27,18 +27,6 @@ export default function Draw() {
   }
 
   function draw() {
-    // draw background
-    ctx.fillStyle = '#000';
-    ctx.fillRect(0, 0, panelPixels, panelPixels);
-    // draw tiles
-    for (let x = 0; x < panelTiles; x++) {
-      for (let y = 0; y < panelTiles; y++) {
-        const tileIndex = y * panelTiles + x;
-        ctx.fillStyle = tiles[tileIndex] ? '#000' : '#fff';
-        ctx.fillRect(
-          x * tilePixels, y * tilePixels,
-          tilePixels, tilePixels
-        );
       }
     }
     // draw grid lines

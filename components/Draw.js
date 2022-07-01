@@ -69,6 +69,11 @@ export default function Draw() {
           );
         }
       }
+      // draw tile text
+      ctx.font = '16px monospace';
+      ctx.fillStyle = '#000';
+      ctx.textAlign = 'right';
+      ctx.fillText(currTile + 1, panelTiles * tilePixels - 2, 16);
     }
     // draw grid lines
     ctx.fillStyle = '#ddd';

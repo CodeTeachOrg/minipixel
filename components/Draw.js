@@ -26,6 +26,13 @@ export default function Draw() {
     return num <= min ? min : num >= max ? max : num;
   }
 
+  function borderText(text, x, y) {
+    ctx.font = '16px monospace';
+    ctx.fillStyle = '#000';
+    ctx.textAlign = 'right';
+    ctx.fillText(text, x, y);
+  }
+
   function draw() {
     // if no tile selected
     if (currTile === -1) {
@@ -48,11 +55,8 @@ export default function Draw() {
               ctx.fillRect(miniX, miniY, miniTilePixels, miniTilePixels);
             }
           }
-          // draw tile text
-          ctx.font = '16px monospace';
-          ctx.fillStyle = '#000';
-          ctx.textAlign = 'right';
-          ctx.fillText(tx + ty * panelTiles + 1, tileX + tilePixels - 2, tileY + 16);
+          // draw tile index
+          borderText(tx + ty * panelTiles + 1, tileX + tilePixels - 2, tileY + 16);
         }
       }
     // if tile selected
@@ -69,11 +73,8 @@ export default function Draw() {
           );
         }
       }
-      // draw tile text
-      ctx.font = '16px monospace';
-      ctx.fillStyle = '#000';
-      ctx.textAlign = 'right';
-      ctx.fillText(currTile + 1, panelTiles * tilePixels - 2, 16);
+      // draw tile index
+      borderText(currTile + 1, panelTiles * tilePixels - 2, 16);
     }
     // draw grid lines
     ctx.fillStyle = '#ddd';

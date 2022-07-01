@@ -51,10 +51,6 @@ export default function Draw() {
     }
   }
 
-  function back() {
-    console.log('back');
-  }
-
   function mouseDown(e) {
     // get mouse x and y
     let mouseX = e.clientX - canvas.offsetLeft + window.scrollX;
@@ -87,12 +83,15 @@ export default function Draw() {
       className={styles.container}
       style={{ width: panelPixels, height: panelPixels }}
     >
-      <button
-        className={styles.back}
-        onClick={back}
-      >
-        ⬅
-      </button>
+      {
+        currTile !== -1 &&
+        <button
+          className={styles.back}
+          onClick={() => setCurrTile(-1)}
+        >
+          ⬅
+        </button>
+      }
       <canvas
         ref={canvasRef}
         onMouseDown={mouseDown}

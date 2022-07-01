@@ -48,6 +48,11 @@ export default function Draw() {
               ctx.fillRect(miniX, miniY, miniTilePixels, miniTilePixels);
             }
           }
+          // draw tile text
+          ctx.font = '16px monospace';
+          ctx.fillStyle = '#000';
+          ctx.textAlign = 'right';
+          ctx.fillText(tx + ty * panelTiles + 1, tileX + tilePixels - 2, tileY + 16);
         }
       }
     // if tile selected

@@ -14,9 +14,5 @@
   align-items: center;
   justify-content: center;
   border: 0;
-  background: #efefef;
-}
-
-.back:hover {
-  background: #ddd;
+  background: transparent;
 }

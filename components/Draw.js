@@ -148,6 +148,7 @@ export default function Draw() {
         <button
           className={styles.back}
           onClick={() => setCurrTile(-1)}
+          style={{ color: tiles[currTile][0] ? '#fff' : '#000' }}
         >
           ⬅
         </button>

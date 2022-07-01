@@ -61,11 +61,18 @@ export default function Draw() {
     // get tile x and y
     const tileX = Math.floor(mouseX / tilePixels);
     const tileY = Math.floor(mouseY / tilePixels);
-    // toggle tile
     const tileIndex = tileY * panelTiles + tileX;
-    const newTiles = tiles.slice();
-    newTiles[tileIndex] = !newTiles[tileIndex];
-    setTiles(newTiles);
+    // select tile
+    if (currTile === -1) {
+      setCurrTile(tileIndex);
+    } else {
+      // draw tile
+      const newTiles = tiles.slice();
+      const newTile = newTiles[currTile].slice();
+      newTile[tileIndex] = !newTile[tileIndex];
+      newTiles[currTile] = newTile;
+      setTiles(newTiles);
+    }
   }
 
   useEffect(() => {

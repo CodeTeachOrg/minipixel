@@ -22,14 +22,16 @@ export default function Draw() {
     )
   );
 
+  // clamps given num between min and max
   function clamp(num, min, max) {
     return num <= min ? min : num >= max ? max : num;
   }
 
-  function borderText(text, x, y) {
+  // draws given text
+  function drawText(text, x, y, alt) {
     ctx.font = '16px monospace';
-    ctx.fillStyle = '#000';
     ctx.textAlign = 'right';
+    ctx.fillStyle = alt ? '#fff' : '#000';
     ctx.fillText(text, x, y);
   }
 
@@ -56,7 +58,12 @@ export default function Draw() {
             }
           }
           // draw tile index
-          borderText(tx + ty * panelTiles + 1, tileX + tilePixels - 2, tileY + 16);
+          drawText(
+            tx + ty * panelTiles + 1,
+            tileX + tilePixels - 2,
+            tileY + 16,
+            tile[panelTiles - 1]
+          );
         }
       }
     // if tile selected
@@ -74,7 +81,12 @@ export default function Draw() {
         }
       }
       // draw tile index
-      borderText(currTile + 1, panelTiles * tilePixels - 2, 16);
+      drawText(
+        currTile + 1,
+        panelTiles * tilePixels - 2,
+        16,
+        tiles[currTile][panelTiles - 1]
+      );
     }
     // draw grid lines
     ctx.fillStyle = '#ddd';
